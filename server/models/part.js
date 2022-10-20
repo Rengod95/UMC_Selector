@@ -10,11 +10,6 @@ module.exports = class Part extends Sequelize.Model {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            partNumber:{
-                type: Sequelize.INTEGER,
-                allowNull: false,
-                unique: true,
-            },
             part_name:{
                 type: Sequelize.TEXT,
                 allowNull: true,
