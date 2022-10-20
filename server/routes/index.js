@@ -67,10 +67,29 @@ router.post('/main/drop', async (req, res, next) => {
 
 
 
+router.get('/admin', async (req, res, next) => {
+    try {
+        //admin 페이지 접속 시 현재 모든 keyword 목록 검색
+        const allKeywords = await Keyword.findAll({})
+
+        //success log
+        res.send(`findAll Success.`)
+        console.log(`findAll Success.`)
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
 
 router.post('/admin/create', async (req, res, next) => {
     try {
         //keyword 생성 요청
+        //DB에 Keyword push
+        await Keyword.create({keywordName: req.body.keywordName, partNumber:req.body.partNumber});
+
+        //success log
+        res.send(`(${req.body.keywordName}, ${req.body.partNumber}) creat Success.`)
+        console.log(`(${req.body.keywordName}, ${req.body.partNumber}) created`)
     } catch (err) {
         console.error(err);
         next(err);
@@ -80,6 +99,12 @@ router.post('/admin/create', async (req, res, next) => {
 router.post('/admin/delete', async (req, res, next) => {
     try {
         //keyword 삭제 요청
+        //DB에서 해당 keyword만 삭제
+        await Keyword.destroy( {where: { id: req.body.id }});
+
+        //success log
+        res.send(`${req.body.id} delete Success.`)
+        console.log(`${req.body.id} deleted`)
     } catch (err) {
         console.error(err);
         next(err);
@@ -89,6 +114,13 @@ router.post('/admin/delete', async (req, res, next) => {
 router.post('/admin/fix', async (req, res, next) => {
     try {
         //keyword 수정 요청
+        // 해당 keywordName 수정
+        await Keyword.update( {keywordName: req.body.content},{where: { id: req.body.id }});
+
+        //success log
+        res.send(`${req.body.content} fix success.`)
+        console.log(`${req.body.content} fix success`)
+
     } catch (err) {
         console.error(err);
         next(err);
@@ -98,6 +130,13 @@ router.post('/admin/fix', async (req, res, next) => {
 router.post('/admin/reset', async (req, res, next) => {
     try {
         //keyword reset 요청
+        //DB에서 해당 파트의 모든 keyword 삭제
+        await Keyword.destroy({where:{partNumber:req.body.partNumber}});
+
+        //success log
+        res.send(`${req.body.content} fix Success.`)
+        console.log(`${req.body.content} fix Success`)
+
     } catch (err) {
         console.error(err);
         next(err);
