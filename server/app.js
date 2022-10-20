@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-const nunjucks = require('nunjucks');
+
 const dotenv = require('dotenv')
 // const subdomain = require('express-subdomain');
 
@@ -12,13 +12,7 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
-app.set('view engine', 'html');
-// app.set('subdomain offset', 2);
 
-nunjucks.configure('views', {
-    express: app,
-    watch: true,
-});
 sequelize.sync({ force: false })
     .then(() =>{
         console.log('데이터베이스 연결 성공');
@@ -28,7 +22,7 @@ sequelize.sync({ force: false })
     });
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

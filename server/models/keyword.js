@@ -3,33 +3,40 @@ const Sequelize = require('sequelize');
 module.exports = class Keyword extends Sequelize.Model {
     static init(sequelize){
         return super.init({
-            title:{
-                type: Sequelize.TEXT,
+            id:{
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                unique: true,
+                autoIncrement: true,
+                primaryKey: true,
+            },
+            keywordName:{
+                type: Sequelize.STRING(100),
                 allowNull: false,
                 unique: true,
             },
             selector:{
-                type: Sequelize.TEXT,
+                type: Sequelize.STRING(10),
                 allowNull: true,
                 unique: true,
             },
-            password:{
-                type: Sequelize.TEXT,
+            partNumber:{
+                type: Sequelize.INTEGER,
                 allowNull: true,
-            },
-            created_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                defaultValue: Sequelize.NOW,
             },
         }, {
             sequelize,
-            timestamps: false,
-            underscored: false,
+            timestamp: false,
+            createdAt: false,
+            updatedAt: false,
             charset: 'utf8',
             modelName: 'Keyword',
             tableName: 'keywords',
             collate: 'utf8_general_ci',
         })
+    }
+    static associate(db) {
+        db.Keyword.hasOne(db.User, {foreignKey: 'selector', sourceKey: 'id'})
+        db.User.belongsTo(db.Keyword, {foreignKey: 'selector', targetKey: 'id'})
     }
 }
