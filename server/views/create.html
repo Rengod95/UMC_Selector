@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<fieldset>
+    <legend>Create Key Word</legend>
+    <form action="/create" method="post">
+        <div>
+            <input type="text" name="title" placeholder="Key Word">
+        </div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</fieldset>
+{% endblock %}

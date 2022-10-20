@@ -1,0 +1,25 @@
+{
+  "name": "select_KeyWord",
+  "version": "0.0.1",
+  "description": "키워드 고르기",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "JunBig",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-subdomain": "^1.0.5",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "nunjucks": "^3.2.3",
+    "sequelize": "^6.24.0",
+    "sequelize-cli": "^6.5.1",
+    "socket.io": "^4.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
