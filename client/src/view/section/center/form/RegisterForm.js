@@ -4,6 +4,7 @@ import useInput from "../../../../hooks/useInput";
 import Button from "@mui/material/Button";
 import useRegister from "../../../../hooks/useRegister";
 import useCheckExistence from "../../../../hooks/useCheckExistence";
+import REQUESTER from "../../../../api/requester";
 
 const RegisterForm = () => {
   const idInput = useInput();
@@ -13,8 +14,10 @@ const RegisterForm = () => {
   const partNumberInput = useInput();
 
   const mutation = useRegister();
-  const nicknameChecker = useCheckExistence(nicknameInput.value);
-  const idChecker = useCheckExistence(idInput.value);
+  const [nicknameCheck, setNicknameCheck] = useState(false);
+  const [idCheck, setIdCheck] = useState(false);
+  // const nicknameChecker = useCheckExistence();
+  // const idChecker = useCheckExistence();
 
   const RegisterSubmitHandler = async (e) => {
     e.preventDefault();
@@ -35,11 +38,21 @@ const RegisterForm = () => {
 
   const nicknameOnBlurHandler = () => {
     console.log("블러 진입");
-    nicknameChecker.setCheckingValue({ nickname: nicknameInput.value });
+    // nicknameChecker.setCheckingValue({ nickname: nicknameInput.value });
+    REQUESTER.checkExistenceRequester({ nickname: nicknameInput.value }).then(p => {
+     setNicknameCheck(() => p.data.existence)
+    }).catch(
+
+    );
   };
 
   const idOnBlurHandler = () => {
-    idChecker.setCheckingValue({ userId: idInput.value });
+    // idChecker.setCheckingValue({ userId: idInput.value });
+    REQUESTER.checkExistenceRequester({ userId: idInput.value }).then(res => {
+      setIdCheck(() => res.data.existence)
+    }).catch(
+    (e) => console.log(e)
+    );
   };
 
   return (
@@ -67,7 +80,7 @@ const RegisterForm = () => {
             value={nicknameInput.value}
           />
           <div className={classes.inputAdditionalText}>
-            {nicknameChecker.hasAlready && "중복된 닉네임 입니다."}
+            {nicknameCheck && "중복된 닉네임 입니다."}
           </div>
         </div>
         <div className={classes.inputContainer}>
@@ -81,7 +94,7 @@ const RegisterForm = () => {
             value={idInput.value}
           />
           <div className={classes.inputAdditionalText}>
-            {idChecker.hasAlready && "중복된 ID 입니다."}
+            {idCheck && "중복된 ID 입니다."}
           </div>
         </div>
         <div className={classes.inputContainer}>

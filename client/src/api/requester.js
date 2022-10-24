@@ -5,7 +5,6 @@ import { checkAuthorization, setJWT } from "./token/setAuthorization";
 const REQUESTER = (function () {
   axios.defaults.baseURL = "http://localhost:3001";
   axios.defaults.withCredentials = true;
-  axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
   const loginRequester = async (userData) => {
     const response = await axios({
@@ -25,8 +24,6 @@ const REQUESTER = (function () {
     const response = await axios({
       url: "/register",
       method: "POST",
-      mode: "CORS",
-      withCredentials: "true",
       data: {
         name: userData.name,
         nickname: userData.nickname,
