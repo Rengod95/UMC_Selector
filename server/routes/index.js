@@ -14,12 +14,14 @@ const config = require('../config/config.json');
 
 const router = express.Router();
 
-router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
-router.use(cors({
-    origin: "*",
+const options = {
+    origin: "http://localhost:3000",
     credentials: true,
-}));
+};
 
+router.use(cors(options));
+
+router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
 
 router.get("/", async (req, res) => {
     res.send("server is running!");
@@ -67,7 +69,7 @@ router.post('/register', async (req, res, next) => {
 // 토큰 테스트용
 router.get('/me', isAuth, (req, res) => {
     res.status(200).json({
-        token: req.token, userId: req.userId, result: "토큰 인증 성공!"
+        token: req.body.token, userId: req.body.userId, result: "토큰 인증 성공!"
     });
 });
 

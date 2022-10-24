@@ -1,12 +1,6 @@
 const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
 const cors = require('cors');
 
-const dotenv = require('dotenv')
-// const subdomain = require('express-subdomain');
-
-dotenv.config();
 const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
 
@@ -22,14 +16,10 @@ sequelize.sync({ force: false })
         console.log(err);
     });
 
-app.use(morgan('dev'));
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
 app.use('/', indexRouter);
-// app.use(subdomain('route', indexRouter));
 
 app.use((req, res, next) => {
     const error =  new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
