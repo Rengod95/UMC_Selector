@@ -4,7 +4,8 @@
   "description": "키워드 고르기",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "prestart": "node config/swagger.js"
   },
   "author": "JunBig",
   "license": "ISC",
@@ -19,9 +20,12 @@
     "nunjucks": "^3.2.3",
     "sequelize": "^6.24.0",
     "sequelize-cli": "^6.5.1",
-    "socket.io": "^4.5.2"
+    "socket.io": "^4.5.2",
+    "swagger-autogen": "^2.22.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0"
   }
 }
