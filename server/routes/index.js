@@ -4,11 +4,9 @@ const User = require('../models/user');
 const Part = require('../models/part');
 const jwt = require('jsonwebtoken');
 
-
-const isAuth = require('../middleware/jwt')
 const config = require('../config/config.json');
+const isAuth = require('../middleware/jwt')
 const router = express.Router();
-
 
 //================= 사용자 페이지
 
@@ -26,9 +24,19 @@ const router = express.Router();
 // });
 
 
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {   // 로그인
     try {
-        //로그인 요청
+        const user = await User.findOne({
+            attributes: ['userId'],
+            where: { userId: req.body.userId, password: req.body.password},
+        });
+
+        if(user != null) {
+            const token = createJwtToken(req.body.userId);
+            res.status(200).json({ token, result: "로그인 성공" });
+
+        } else { res.send("로그인 실패!"); }
+
     } catch (err) {
         console.error(err);
         next(err);
@@ -37,11 +45,28 @@ router.post('/', async (req, res, next) => {
 
 router.post('/register', async (req, res, next) => {
     try {
-        //회원가입 요청
+        const [user, created] = await User.findOrCreate({
+            attributes: ['userId'],
+            where: { userId: req.body.userId },
+            defaults: { name: req.body.name, nickName: req.body.nickName,
+                password: req.body.password, partNumber: req.body.partNumber}
+        });
+
+        if (created) {
+            const token = createJwtToken(req.body.userId);
+            res.status(201).json({ token, result: "회원가입 성공" });
+        } else { res.send("회원가입 실패")};
+
     } catch (err) {
         console.error(err);
         next(err);
     }
+});
+
+router.get('/me', isAuth, (req, res) => {  // 토큰 테스트
+    res.status(200).json({
+        token: req.token, userId: req.userId, result: "토큰 인증 성공!"
+    });
 });
 
 
@@ -131,8 +156,6 @@ router.post('/main/random', async (req, res, next) => {
 });
 
 
-/*
-
 router.get('/admin', async (req, res, next) => {
     try {
         //admin 페이지 접속 시 현재 모든 keyword 목록 검색
@@ -210,8 +233,6 @@ router.post('/admin/reset', async (req, res, next) => {
     }
 });
 
-
- */
 
 function createJwtToken(userId) {
     return jwt.sign({ userId: userId }, config.security.JWT_SECRET,

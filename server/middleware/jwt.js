@@ -2,8 +2,6 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/config.json');
 const User = require("../models/user");
 
-
-
 module.exports = isAuth = async(req, res, next) => {
     const authHeader = req.get('Authorization');
     if (!(authHeader && authHeader.startsWith('Bearer '))) {
