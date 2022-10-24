@@ -10,12 +10,14 @@ const swaggerFile = require('../config/swagger-output.json');
 
 const isAuth = require('../middleware/jwt');
 const config = require('../config/config.json');
-const router = express.Router();
-
 
 const router = express.Router();
 
 router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
+
+router.get("/", async (req, res) => {
+    res.send("server is running!");
+});
 
 router.post('/', async (req, res, next) => {   // 로그인
     try {
