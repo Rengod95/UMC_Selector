@@ -6,10 +6,11 @@ const REQUESTER = (function () {
   axios.defaults.baseURL = "http://localhost:3001";
   axios.defaults.withCredentials = true;
 
+
   const loginRequester = async (userData) => {
     const response = await axios({
       url: GV.getLoginENP(),
-      method: "POST",
+      method: "post",
       data: {
         userId: userData.userId,
         password: userData.password,
@@ -23,7 +24,9 @@ const REQUESTER = (function () {
   const registerRequester = async (userData) => {
     const response = await axios({
       url: "/register",
-      method: "POST",
+      method: "get",
+      mode:"cors",
+      withCredentials:"true",
       data: {
         name: userData.name,
         nickname: userData.nickname,
@@ -39,7 +42,7 @@ const REQUESTER = (function () {
   const checkExistenceRequester = async (data) => {
     return await axios({
       url: "/register",
-      method: "GET",
+      method: "get",
       data: data,
     });
   };

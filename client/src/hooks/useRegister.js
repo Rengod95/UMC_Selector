@@ -12,10 +12,10 @@ const useRegister = () => {
     console.log("Registering");
   }
   if (mutation.isError) {
-    console.log(mutation.error);
+    console.log("레지스터 에러 발생");
   }
   if (mutation.isSuccess) {
-    console.log("register is success", mutation.data);
+    console.log("register is success");
     navigator("/main");
   }
 
