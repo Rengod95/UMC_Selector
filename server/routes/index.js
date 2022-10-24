@@ -4,25 +4,18 @@ const User = require('../models/user');
 const Part = require('../models/part');
 const jwt = require('jsonwebtoken');
 
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('../config/swagger-output.json');
+
+const isAuth = require('../middleware/jwt');
 const config = require('../config/config.json');
-const isAuth = require('../middleware/jwt')
 const router = express.Router();
 
-//================= 사용자 페이지
 
-// root 페이지
-// router.post('/', async (req, res, next) => {
-//     try {
-//         await Part.create({partNumber: req.body.partNumber, part_name:req.body.part_name});
-//         res.send("ok")
-//
-//     } catch (err) {
-//
-//         console.error(err);
-//         next(err);
-//     }
-// });
+const router = express.Router();
 
+router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
 
 router.post('/', async (req, res, next) => {   // 로그인
     try {
@@ -63,13 +56,15 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
-router.get('/me', isAuth, (req, res) => {  // 토큰 테스트
+// 토큰 테스트용
+router.get('/me', isAuth, (req, res) => {
     res.status(200).json({
         token: req.token, userId: req.userId, result: "토큰 인증 성공!"
     });
 });
 
 
+// main/에서 get keyword 필요한지
 router.get('/main', isAuth, async (req, res, next) => {
     try {
 
@@ -83,7 +78,6 @@ router.get('/main', isAuth, async (req, res, next) => {
         next(err);
     }
 });
-
 
 
 router.post('/main/select', async (req, res, next) => {
