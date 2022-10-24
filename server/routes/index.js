@@ -3,7 +3,8 @@ const Keyword = require('../models/keyword');
 const User = require('../models/user');
 const Part = require('../models/part');
 const jwt = require('jsonwebtoken');
-
+const cors = require('cors');
+const app = express();
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('../config/swagger-output.json');
@@ -14,6 +15,11 @@ const config = require('../config/config.json');
 const router = express.Router();
 
 router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
+router.use(cors({
+    origin: "*",
+    credentials: true,
+}));
+
 
 router.get("/", async (req, res) => {
     res.send("server is running!");
@@ -70,10 +76,9 @@ router.get('/me', isAuth, (req, res) => {
 router.get('/main', isAuth, async (req, res, next) => {
     try {
 
-        const allKeywords = await Keyword.findAll({where:{partNumber:req.partNumber}})
+        const allKeywords = await Keyword.findAll({where:{partNumber:req.body.partNumber}})
 
-        const token = createJwtToken(allKeywords)
-        res.status(200).json({token, result: "키워드 호출 성공"})
+        res.status(200).json({allKeywords, result: "키워드 호출 성공"})
 
     } catch (err) {
         console.error(err);
@@ -86,13 +91,13 @@ router.post('/main/select', async (req, res, next) => {
     try {
         // -> 이 부분 유저 nickName만 넣을지 id->누가 선택했는지 구분할라고...
 
-        const allKeywords = await Keyword.findOne({where:{id: req.keywordId}})
+        const allKeywords = await Keyword.findOne({where:{id: req.body.keywordId}})
 
         // 선택된 keyword의 selector가 비어있다면 현재 user로 채우기
         if(allKeywords.selector === null) {
-            await Keyword.update({selector: req.body.nickName}, {where: {id: req.keywordId}});
-            const token = createJwtToken(req.keywordId)
-            res.status(200).json({token, result: "키워드 선택 성공"})
+            await Keyword.update({selector: req.body.nickName}, {where: {id: req.body.keywordId}});
+
+            res.status(200);
 
         }else{ // 비어있지 않다면 error 발생
            throw new Error("Already selected")
@@ -108,14 +113,13 @@ router.post('/main/select', async (req, res, next) => {
 router.post('/main/drop', async (req, res, next) => {
     try {
 
-        const allKeywords = await Keyword.findOne({where:{id: req.keywordId}})
+        const allKeywords = await Keyword.findOne({where:{id: req.body.keywordId}})
 
         //선택된
         if(allKeywords.selector !== null) {
-            await Keyword.update( {selector: null},{where: { id: req.keywordId }});
+            await Keyword.update( {selector: null},{where: { id: req.body.keywordId }});
 
-            const token = createJwtToken(req.keywordId)
-            res.status(200).json({token, result: "키워드 드랍 성공"})
+            res.status(200);
 
         }else{
             throw new Error("Keyword does not selected")
@@ -137,11 +141,10 @@ router.post('/main/random', async (req, res, next) => {
         const target = Math.floor(Math.random() * len)
 
         if(Object.keys(allKeywords).length !== 0) { //selector=null인 값이 있으면.
-            const targetId = Object.values(allKeywords)[0].id
+            const targetId = Object.values(allKeywords)[target].id
             await Keyword.update( {selector: req.body.nickName},{where: { id: targetId }});
 
-            const token = createJwtToken(targetId)
-            res.status(200).json({token, result: "키워드 랜덤 선택 성공"})
+            res.status(200)
         }else{
             throw new Error("All keywords are selected.")
         }
@@ -151,6 +154,18 @@ router.post('/main/random', async (req, res, next) => {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+//delay admin
 
 router.get('/admin', async (req, res, next) => {
     try {

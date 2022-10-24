@@ -12,6 +12,15 @@
   ],
   "paths": {
     "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "post": {
         "description": "",
         "parameters": [],
@@ -122,6 +131,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "keywordId": {
+                    "example": "any"
+                  },
                   "nickName": {
                     "example": "any"
                   }
@@ -139,6 +151,20 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keywordId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }

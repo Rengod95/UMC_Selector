@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const dotenv = require('dotenv')
 // const subdomain = require('express-subdomain');
@@ -9,8 +10,8 @@ dotenv.config();
 const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
 
-
 const app = express();
+
 app.set('port', process.env.PORT || 3001);
 
 sequelize.sync({ force: false })
