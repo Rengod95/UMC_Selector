@@ -3,7 +3,7 @@ import GV from "../store/constants/globalVariable";
 import { checkAuthorization, setJWT } from "./token/setAuthorization";
 
 const REQUESTER = (function () {
-  axios.defaults.baseURL = "https://junbig.shop:3001/";
+  axios.defaults.baseURL = "http://localhost:3001";
   axios.defaults.withCredentials = true;
 
   const loginRequester = async (userData) => {
