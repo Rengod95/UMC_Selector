@@ -1,5 +1,4 @@
 import axios from "axios";
-import GV from "../store/constants/globalVariable";
 import { checkAuthorization, setJWT } from "./token/setAuthorization";
 
 const REQUESTER = (function () {
@@ -8,7 +7,7 @@ const REQUESTER = (function () {
 
   const loginRequester = async (userData) => {
     const response = await axios({
-      url: GV.getLoginENP(),
+      url: "/login",
       method: "POST",
       data: {
         userId: userData.userId,
@@ -37,6 +36,7 @@ const REQUESTER = (function () {
   };
 
   const checkExistenceRequester = async (data) => {
+    console.log("중복검사 api request");
     return await axios({
       url: "/register",
       method: "GET",

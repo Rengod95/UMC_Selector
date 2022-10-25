@@ -19,6 +19,8 @@ const options = {
     credentials: true,
 };
 
+
+
 router.use(cors(options));
 
 router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
@@ -65,6 +67,10 @@ router.post('/register', async (req, res, next) => {
         next(err);
     }
 });
+
+router.get("/register", async (req, res) => {
+    res.status(200).json({existence: true})
+})
 
 // 토큰 테스트용
 router.get('/me', isAuth, (req, res) => {

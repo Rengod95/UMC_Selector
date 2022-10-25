@@ -1,11 +1,17 @@
-import * as React from "react";
-import { Box, ThemeProvider, createTheme } from "@mui/system";
-import RegisterForm from "../section/center/form/RegisterForm";
-import LoginForm from "../section/center/form/LoginForm";
-import AuthPage from "./AuthPage";
+import React from "react";
+import AuthPage from "./auth-page/AuthPage";
+import { Route, Routes, Navigate } from "react-router-dom";
+import MainTop from "./main-page/components/MainTop";
 
 const TotalPage = () => {
-  return <AuthPage></AuthPage>;
+  return (
+    <Routes>
+      <Route path={"/"} element={<Navigate to={"/main"} />}></Route>
+      <Route path={"/register"} element={<AuthPage />} />
+      <Route path={"/login"} element={<AuthPage />} />
+      <Route path={"/main"} element={<MainTop />} />
+    </Routes>
+  );
 };
 
 export default TotalPage;
