@@ -17,13 +17,15 @@ module.exports = isAuth = async(req, res, next) => {
                 return res.status(401).json("토큰 오류");
             }
             const user = await User.findOne({
-                attributes: ['userId'],
+                attributes: ['userId','nickname','partNumber'],
                 where: { userId: decoded.userId},
             });
             if (user == null) {
                 return res.status(401).json("토큰 오류");
             }
             req.userId = user.userId;
+            req.nickname = user.nickname;
+            req.partNumber = user.partNumber;
             next();
         }
     );
