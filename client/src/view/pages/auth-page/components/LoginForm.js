@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import classes from "../../../../styles/center-side/loginForm.module.scss";
+import classes from "../../../../styles/auth-page/loginForm.module.scss";
 import useInput from "../../../../hooks/useInput";
 import useRegister from "../../../../hooks/useRegister";
 import Button from "@mui/material/Button";
+import useLogin from "../../../../hooks/useLogin";
 
 const LoginForm = () => {
   const idInput = useInput();
   const passwordInput = useInput();
-  const mutation = useRegister();
+  const trigger = useLogin();
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
-    mutation.mutate({ userId: idInput.value, password: passwordInput.value });
+    trigger({ userId: idInput.value, password: passwordInput.value });
     idInput.resetInputValue();
     passwordInput.resetInputValue();
   };

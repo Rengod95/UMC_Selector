@@ -18,6 +18,8 @@ const options = {
     credentials: true,
 };
 
+
+
 router.use(cors(options));
 
 router.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
@@ -65,6 +67,7 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
+
 router.get("/register", async (req, res, next) => {
     // nickname, userId 둘중에 하나가 온다. 두 경우로 나눠서 중복검사해서 existence: true or false
 
@@ -90,6 +93,7 @@ router.get("/register", async (req, res, next) => {
         } else res.status(200).json({ existence: false });
     }
 });
+
 
 // 토큰 테스트용
 router.get('/me', isAuth, (req, res) => {

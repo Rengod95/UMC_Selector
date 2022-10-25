@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import classes from "../../../../styles/center-side/reg-form.module.scss";
+import React, { useState } from "react";
+import classes from "../../../../styles/auth-page/reg-form.module.scss";
 import useInput from "../../../../hooks/useInput";
 import Button from "@mui/material/Button";
 import useRegister from "../../../../hooks/useRegister";
-import useCheckExistence from "../../../../hooks/useCheckExistence";
 import REQUESTER from "../../../../api/requester";
 
 const RegisterForm = () => {
@@ -13,46 +12,39 @@ const RegisterForm = () => {
   const nicknameInput = useInput();
   const partNumberInput = useInput();
 
-  const mutation = useRegister();
+  const mutationTrigger = useRegister();
   const [nicknameCheck, setNicknameCheck] = useState(false);
   const [idCheck, setIdCheck] = useState(false);
-  // const nicknameChecker = useCheckExistence();
-  // const idChecker = useCheckExistence();
 
   const RegisterSubmitHandler = async (e) => {
     e.preventDefault();
-    mutation.mutate({
+
+    await mutationTrigger({
       name: nameInput.value,
       nickname: nicknameInput.value,
       userId: idInput.value,
       password: passwordInput.value,
       partNumber: partNumberInput.value,
     });
-
-    nameInput.resetInputValue();
-    nicknameInput.resetInputValue();
-    idInput.resetInputValue();
-    passwordInput.resetInputValue();
-    partNumberInput.resetInputValue();
   };
 
-  const nicknameOnBlurHandler = () => {
+  const nicknameOnBlurHandler = async () => {
     console.log("블러 진입");
-    // nicknameChecker.setCheckingValue({ nickname: nicknameInput.value });
-    REQUESTER.checkExistenceRequester({ nickname: nicknameInput.value }).then(p => {
-     setNicknameCheck(() => p.data.existence)
-    }).catch(
-
-    );
+    await REQUESTER.checkExistenceRequester({ nickname: nicknameInput.value })
+      .then((res) => {
+        console.log(res);
+        setNicknameCheck(() => res.data.existence);
+      })
+      .catch((e) => console.log(e));
+    console.log("블러 아웃");
   };
 
   const idOnBlurHandler = () => {
-    // idChecker.setCheckingValue({ userId: idInput.value });
-    REQUESTER.checkExistenceRequester({ userId: idInput.value }).then(res => {
-      setIdCheck(() => res.data.existence)
-    }).catch(
-    (e) => console.log(e)
-    );
+    REQUESTER.checkExistenceRequester({ userId: idInput.value })
+      .then((res) => {
+        setIdCheck(() => res.data.existence);
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -73,7 +65,7 @@ const RegisterForm = () => {
           <input
             id={"nickname"}
             type="text"
-            placeholder="NickName"
+            placeholder="nickname"
             className={classes.input}
             onChange={nicknameInput.onChangeHandler}
             onBlur={nicknameOnBlurHandler}
