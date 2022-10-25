@@ -47,7 +47,7 @@ router.post('/login', async (req, res, next) => {   // 로그인
     }
 });
 
-router.post('/register', async (req, res, next) => {
+router.post('/register/reg', async (req, res, next) => {
     try {
         const [user, created] = await User.findOrCreate({
             attributes: ['userId'],
@@ -68,16 +68,16 @@ router.post('/register', async (req, res, next) => {
 });
 
 
-router.get("/register", async (req, res, next) => {
+router.post("/register/check", async (req, res) => {
     // nickname, userId 둘중에 하나가 온다. 두 경우로 나눠서 중복검사해서 existence: true or false
 
     if (req.body.nickname != null) {
-        const nickName = await User.findOne({
+        const nickname = await User.findOne({
             attributes: ['nickname'],
             where: { nickname: req.body.nickname }
         });
 
-        if (nickName != null) {
+        if (nickname != null) {
             res.status(200).json({ existence: true });
         } else res.status(200).json({ existence: false });
     }

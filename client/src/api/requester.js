@@ -21,7 +21,7 @@ const REQUESTER = (function () {
 
   const registerRequester = async (userData) => {
     const response = await axios({
-      url: "/register",
+      url: "/register/reg",
       method: "POST",
       data: {
         name: userData.name,
@@ -36,10 +36,10 @@ const REQUESTER = (function () {
   };
 
   const checkExistenceRequester = async (data) => {
-    console.log("중복검사 api request");
+    console.log(data);
     return await axios({
-      url: "/register",
-      method: "GET",
+      url: "/register/check",
+      method: "POST",
       data: data,
     });
   };

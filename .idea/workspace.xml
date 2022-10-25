@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5849559-fc6e-4558-840a-20797b9e272c" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
@@ -26,18 +27,16 @@
       <change beforePath="$PROJECT_DIR$/client/src/styles/pages/AuthPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/AuthPage.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/pages/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/AuthPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/RegisterForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainBottom.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainMiddle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/main-page/components/MainTop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/section/center/form/AuthFormIndicator.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/section/center/form/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/form/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/RegisterForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/swagger-output.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/swagger-output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
     </list>
-    <list id="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" name="kjgi7 님이 변경한 내용" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/api/requester.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/requester.js" afterDir="false" />
-    </list>
+    <list id="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" name="kjgi7 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,15 +52,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/client/src/api/requester.js">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="1" changelist="e5849559-fc6e-4558-840a-20797b9e272c" />
-        <range start1="10" end1="11" start2="9" end2="10" changelist="e5849559-fc6e-4558-840a-20797b9e272c" />
-        <range start1="39" end1="39" start2="38" end2="39" changelist="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -73,18 +63,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/in/Documents/umc_selector/client/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/in/Documents/umc_selector/client/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/src/styles/auth-page" />
