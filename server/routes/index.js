@@ -4,7 +4,6 @@ const User = require('../models/user');
 const Part = require('../models/part');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const app = express();
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('../config/swagger-output.json');
@@ -27,7 +26,7 @@ router.get("/", async (req, res) => {
     res.send("server is running!");
 });
 
-router.post('/', async (req, res, next) => {   // 로그인
+router.post('/login', async (req, res, next) => {   // 로그인
     try {
         const user = await User.findOne({
             attributes: ['userId'],
@@ -38,7 +37,7 @@ router.post('/', async (req, res, next) => {   // 로그인
             const token = createJwtToken(req.body.userId);
             res.status(200).json({ token, result: "로그인 성공" });
 
-        } else { res.send("로그인 실패!"); }
+        } else { res.status(400).json("로그인 실패!")}
 
     } catch (err) {
         console.error(err);
@@ -51,18 +50,44 @@ router.post('/register', async (req, res, next) => {
         const [user, created] = await User.findOrCreate({
             attributes: ['userId'],
             where: { userId: req.body.userId },
-            defaults: { name: req.body.name, nickName: req.body.nickName,
+            defaults: { name: req.body.name, nickname: req.body.nickname,
                 password: req.body.password, partNumber: req.body.partNumber}
         });
 
         if (created) {
             const token = createJwtToken(req.body.userId);
             res.status(201).json({ token, result: "회원가입 성공" });
-        } else { res.send("회원가입 실패")};
+        } else { res.status(400).json("회원가입 실패")}
 
     } catch (err) {
         console.error(err);
         next(err);
+    }
+});
+
+router.get("/register", async (req, res, next) => {
+    // nickname, userId 둘중에 하나가 온다. 두 경우로 나눠서 중복검사해서 existence: true or false
+
+    if (req.body.nickname != null) {
+        const nickName = await User.findOne({
+            attributes: ['nickname'],
+            where: { nickname: req.body.nickname }
+        });
+
+        if (nickName != null) {
+            res.status(200).json({ existence: true });
+        } else res.status(200).json({ existence: false });
+    }
+
+    if (req.body.userId != null) {
+        const userId = await User.findOne({
+            attributes: ['userId'],
+            where: { userId: req.body.userId }
+        });
+
+        if (userId != null) {
+            res.status(200).json({ existence: true });
+        } else res.status(200).json({ existence: false });
     }
 });
 
