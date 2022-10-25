@@ -44,10 +44,40 @@ const REQUESTER = (function () {
     });
   };
 
+  const keywordSelectRequester = async (_keywordID) => {
+    return await axios({
+      url: "/main/select",
+      method: "PUT",
+      data: {
+        keywordID: _keywordID,
+      },
+    });
+  };
+
+  const keywordDropRequester = async (_keywordID) => {
+    return await axios({
+      url: "/main/drop",
+      method: "PUT",
+      data: {
+        keywordID: _keywordID,
+      },
+    });
+  };
+
+  const keywordsRequester = async (pageParam) => {
+    return await axios({
+      url: "/main?page=" + pageParam,
+      method: "GET",
+    });
+  };
+
   return {
     loginRequester,
     registerRequester,
     checkExistenceRequester,
+    keywordSelectRequester,
+    keywordDropRequester,
+    keywordsRequester,
   };
 })();
 
