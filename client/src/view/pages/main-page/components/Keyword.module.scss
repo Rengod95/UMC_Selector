@@ -1,0 +1,22 @@
+
+.keywordCard{
+  display: grid;
+  grid-template-columns: 7fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.63);
+  width: 360px;
+  height: 50px;
+  border-radius: 5px;
+
+  .title{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .selector{
+    font-size: 12px;
+    font-weight: bolder;
+    text-align: start;
+  }
+}

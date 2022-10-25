@@ -2,39 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5849559-fc6e-4558-840a-20797b9e272c" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/api/requester.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/requester.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/useLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/hooks/useLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/useRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/hooks/useRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/constants/globalVariable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/.sass-cache/848e7c8288f1b99bfb9a2649ab1bf1bacdf61346/Register.module.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/.sass-cache/848e7c8288f1b99bfb9a2649ab1bf1bacdf61346/form-side.module.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/.sass-cache/848e7c8288f1b99bfb9a2649ab1bf1bacdf61346/main-view.module.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/.sass-cache/848e7c8288f1b99bfb9a2649ab1bf1bacdf61346/reg-form.module.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/.sass-cache/ae33796cfe48acf493285ec1918372f7607bf447/variables.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/loginForm.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/loginForm.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/loginForm.module.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/loginForm.module.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/loginForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/loginForm.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/reg-form.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/reg-form.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/reg-form.module.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/reg-form.module.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/center-side/reg-form.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/reg-form.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/pages/AuthPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/AuthPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/pages/AuthPage.module.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/AuthPage.module.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/pages/AuthPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/auth-page/AuthPage.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/pages/AuthPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/AuthPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainBottom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainMiddle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/components/MainTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/main-page/components/MainTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/form/AuthFormIndicator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/section/center/form/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/auth-page/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/swagger-output.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/swagger-output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/pages/main-page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/main-page/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/pages/main-page/components/MainTop.js" beforeDir="false" />
     </list>
     <list id="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" name="kjgi7 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="SCSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -63,23 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/in/Documents/umc_selector/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "SCSS",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/in/Documents/umc_selector/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.언어 디폴트 값",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/view/pages/main-page" />
+      <recent name="$PROJECT_DIR$/client/src/view/pages" />
       <recent name="$PROJECT_DIR$/client/src/styles/auth-page" />
       <recent name="$PROJECT_DIR$/client/src/view/pages/main-page/components" />
-      <recent name="$PROJECT_DIR$/client/src/view/pages/main-page" />
       <recent name="$PROJECT_DIR$/client/src/view/pages/auth-page" />
     </key>
   </component>
