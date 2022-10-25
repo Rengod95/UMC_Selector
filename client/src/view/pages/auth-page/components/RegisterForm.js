@@ -32,6 +32,7 @@ const RegisterForm = () => {
     console.log("블러 진입");
     await REQUESTER.checkExistenceRequester({ nickname: nicknameInput.value })
       .then((res) => {
+        console.log('sex')
         console.log(res);
         setNicknameCheck(() => res.data.existence);
       })

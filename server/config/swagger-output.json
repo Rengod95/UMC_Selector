@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/register": {
+    "/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -32,7 +32,37 @@
           },
           "400": {
             "description": "Bad Request"
-
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register/reg": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         },
         "requestBody": {
@@ -47,7 +77,7 @@
                   "name": {
                     "example": "any"
                   },
-                  "nickName": {
+                  "nickname": {
                     "example": "any"
                   },
                   "password": {
@@ -63,22 +93,11 @@
         }
       }
     },
-    "/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/register/check": {
       "post": {
         "description": "",
         "parameters": [],
         "responses": {
-          "400": {
-            "description": "Bad Request"
           "200": {
             "description": "OK"
           }
@@ -89,31 +108,15 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "userId": {
-                    "example": "any"
-                  },
-
-                  "name": {
-                    "example": "any"
-                  },
                   "nickname": {
                     "example": "any"
                   },
-                  "password": {
+                  "userId": {
                     "example": "any"
                   }
                 }
               }
             }
-          }
-        }
-      },
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
