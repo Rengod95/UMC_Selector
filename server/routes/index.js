@@ -109,7 +109,7 @@ router.get('/main', isAuth, async (req, res, next) => {
         console.log(`nickname: ${req.nickname}, userId: ${req.userId}, partNumber: ${req.partNumber}`);
         const allKeywords = await Keyword.findAll({where:{partNumber:req.partNumber}})
 
-        res.status(200).json({allKeywords});
+        res.status(200).json({allKeywords, result:"Keyword load success."});
 
     } catch (err) {
         console.error(err);
@@ -122,17 +122,16 @@ router.post('/main/select', isAuth, async (req, res, next) => {
     try {
         // -> 이 부분 유저 nickName만 넣을지 id->누가 선택했는지 구분할라고...
 
-        const allKeywords = await Keyword.findOne({where:{id: req.body.keywordId}})
+        const allKeywords = await Keyword.findOne({where:{keywordNumber: req.body.keywordNumber}})
 
         // 선택된 keyword의 selector가 비어있다면 현재 user로 채우기
         if(allKeywords.selector === null) {
-            console.log(`nickname: ${req.nickname}, keywordId: ${req.body.keywordId}`);
-            await Keyword.update({selector: req.nickname}, {where: {id: req.body.keywordId}});
+            await Keyword.update({selector: req.nickname}, {where: {keywordNumber: req.body.keywordNumber}});
 
-            res.status(200);
+            res.status(200).json("Select success.");
 
         }else{ // 비어있지 않다면 error 발생
-            res.status(400);
+            res.status(400).json("Keyword already selected.");
         }
     } catch (err) {
         console.error(err);
@@ -145,16 +144,16 @@ router.post('/main/select', isAuth, async (req, res, next) => {
 router.put('/main/drop', isAuth, async (req, res, next) => {
     try {
 
-        const allKeywords = await Keyword.findOne({where:{id: req.body.keywordId}})
+        const allKeywords = await Keyword.findOne({where:{keywordNumber: req.body.keywordNumber}})
 
         //선택된
         if(allKeywords.selector !== null) {
-            await Keyword.update( {selector: null},{where: { id: req.body.keywordId }});
+            await Keyword.update( {selector: null},{where: { keywordNumber: req.body.keywordNumber}});
 
-            res.status(200);
+            res.status(200).json({result:"Drop success."});
 
         }else{
-            res.status(400);
+            res.status(400).json("Keyword does not select.");
         }
     } catch (err) {
         console.error(err);
@@ -173,12 +172,13 @@ router.post('/main/random', isAuth, async (req, res, next) => {
         const target = Math.floor(Math.random() * len)
 
         if(Object.keys(allKeywords).length !== 0) { //selector=null인 값이 있으면.
-            const targetId = Object.values(allKeywords)[target].id
-            await Keyword.update( {selector: req.nickname},{where: { id: targetId }});
+            const targetId = Object.values(allKeywords)[target].keywordNumber;
 
-            res.status(200)
+            await Keyword.update( {selector: req.nickname},{where: { keywordNumber: targetId }});
+
+            res.status(200).json("Random select success.");
         }else{
-            res.status(400);
+            res.status(400).json("All keyword already selected.");
         }
     } catch (err) {
         console.error(err);

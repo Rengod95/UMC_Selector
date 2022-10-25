@@ -24,6 +24,7 @@ Part.init(sequelize);
 
 Keyword.associate(db);
 User.associate(db);
+Part.associate(db);
 
 
 module.exports = db;
