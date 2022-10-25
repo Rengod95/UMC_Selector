@@ -20,7 +20,9 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/login": {
       "post": {
         "description": "",
         "parameters": [],
@@ -28,8 +30,9 @@
           "200": {
             "description": "OK"
           },
-          "201": {
-            "description": "Created"
+          "400": {
+            "description": "Bad Request"
+
           }
         },
         "requestBody": {
@@ -74,6 +77,8 @@
         "description": "",
         "parameters": [],
         "responses": {
+          "400": {
+            "description": "Bad Request"
           "200": {
             "description": "OK"
           }
@@ -87,12 +92,28 @@
                   "userId": {
                     "example": "any"
                   },
+
+                  "name": {
+                    "example": "any"
+                  },
+                  "nickname": {
+                    "example": "any"
+                  },
                   "password": {
                     "example": "any"
                   }
                 }
               }
             }
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
