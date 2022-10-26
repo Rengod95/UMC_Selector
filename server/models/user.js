@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = class User extends Sequelize.Model {
     static init(sequelize){
         return super.init({
-            id:{
+            userNumber:{
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 unique: true,
@@ -49,7 +49,7 @@ module.exports = class User extends Sequelize.Model {
         })
     }
     static associate(db) {
-        db.User.hasOne(db.Part, {foreignKey: 'partNumber', sourceKey: 'partNumber'})
-        db.Part.belongsTo(db.User, {foreignKey: 'partNumber', targetKey: 'partNumber'})
+        db.User.hasOne(db.Part, {foreignKey: 'partNumber', sourceKey: 'partNumber'});
+        db.User.hasOne(db.Keyword, {foreignKey: 'selector', sourceKey: 'nickname'});
     }
 }

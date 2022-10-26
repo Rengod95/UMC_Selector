@@ -1,4 +1,5 @@
 const express = require('express');
+const { queryParser } = require('express-query-parser');
 
 const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
@@ -15,9 +16,17 @@ sequelize.sync({ force: false })
         console.log(err);
     });
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(
+    queryParser({
+        parseNull: true,
+        parseUndefined: true,
+        parseBoolean: true,
+        parseNumber: true
+    })
+);
 app.use('/', indexRouter);
 
 app.use((req, res, next) => {
