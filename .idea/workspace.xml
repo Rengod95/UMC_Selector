@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5849559-fc6e-4558-840a-20797b9e272c" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/requester.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/requester.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/TotalPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/pages/main-page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/main-page/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/pages/main-page/components/MainTop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/pages/main-page/components/KeywordContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/pages/main-page/components/KeywordContainer.js" afterDir="false" />
     </list>
     <list id="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" name="kjgi7 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
