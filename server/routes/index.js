@@ -14,7 +14,7 @@ const config = require('../config/config.json');
 const router = express.Router();
 
 const options = {
-    origin: "http://localhost:3000",
+    origin: "https://www.junbig.shop",
     credentials: true,
 };
 
@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
     res.send("server is running!");
 });
 
-router.post('/login', async (req, res, next) => {   // 로그인
+router.post('/api/login', async (req, res, next) => {   // 로그인
     try {
         const user = await User.findOne({
             attributes: ['userId'],
@@ -47,7 +47,7 @@ router.post('/login', async (req, res, next) => {   // 로그인
     }
 });
 
-router.post('/register/reg', async (req, res, next) => {
+router.post('/api/register/reg', async (req, res, next) => {
     try {
         const [user, created] = await User.findOrCreate({
             attributes: ['userId'],
@@ -68,7 +68,7 @@ router.post('/register/reg', async (req, res, next) => {
 });
 
 
-router.post("/register/check", async (req, res) => {
+router.post("/api/register/check", async (req, res) => {
     // nickname, userId 둘중에 하나가 온다. 두 경우로 나눠서 중복검사해서 existence: true or false
 
     if (req.body.nickname != null) {
@@ -104,7 +104,7 @@ router.get('/me', isAuth, (req, res) => {
 
 
 // main/에서 get keyword 필요한지
-router.get('/main?*', isAuth, async (req, res, next) => {
+router.get('/api/main?*', isAuth, async (req, res, next) => {
     const keywordNum = 10;
     let pageNum = req.query.page;
     let _offset = 0;
@@ -139,7 +139,7 @@ router.get('/main?*', isAuth, async (req, res, next) => {
 });
 
 
-router.post('/main/select', isAuth, async (req, res, next) => {
+router.post('/api/main/select', isAuth, async (req, res, next) => {
     try {
         // -> 이 부분 유저 nickName만 넣을지 id->누가 선택했는지 구분할라고...
 
@@ -162,7 +162,7 @@ router.post('/main/select', isAuth, async (req, res, next) => {
 
 
 
-router.put('/main/drop', isAuth, async (req, res, next) => {
+router.put('/api/main/drop', isAuth, async (req, res, next) => {
     try {
 
         const keywords = await Keyword.findOne({where:{keywordNumber: req.body.keywordNumber}})
@@ -184,7 +184,7 @@ router.put('/main/drop', isAuth, async (req, res, next) => {
 
 
 
-router.post('/main/random', isAuth, async (req, res, next) => {
+router.post('/api/main/random', isAuth, async (req, res, next) => {
     try {
         //선택한 keyword의 selector와 현재 유저 비교후 드랍
 
