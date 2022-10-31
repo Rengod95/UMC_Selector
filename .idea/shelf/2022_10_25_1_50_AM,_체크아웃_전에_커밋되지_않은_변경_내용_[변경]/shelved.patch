@@ -1,0 +1,160 @@
+Index: client/src/styles/center-side/reg-form.module.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.form {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 7fr 3fr;\n  align-items: center;\n  justify-content: center;\n  width: 280px;\n  height: 520px;\n  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.27);\n  border-radius: 10px;\n  border: 1px solid rgba(56, 56, 56, 0.11);\n  background-color: rgba(255, 255, 255, 0.39);\n}\n\n.inputSection {\n  margin-top: 15%;\n  width: 100%;\n  height: 100%;\n  display: grid;\n  grid-template-rows: repeat(5, 1fr);\n  grid-template-columns: 1fr;\n  align-items: center;\n  justify-content: center;\n}\n\n.inputContainer {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 7fr 3fr;\n  justify-content: center;\n  align-items: flex-start;\n  width: 100%;\n  height: 100%;\n}\n\n.input {\n  margin-left: 11%;\n  display: block;\n  background-color: rgba(234, 234, 234, 0.43);\n  height: 90%;\n  width: 78%;\n  border: 1px solid rgba(0, 0, 0, 0.07);\n  border-radius: 3px;\n  padding-left: 15px;\n  font-size: 14px;\n}\n\n.inputAdditionalText {\n  height: 100%;\n  width: 100%;\n  color: #e8636e;\n  font-size: 13px;\n  display: flex;\n  justify-content: center;\n}\n\n.buttonSection {\n  width: 100%;\n  height: 100%;\n  display: grid;\n  align-items: center;\n  justify-content: center;\n}\n\n/*# sourceMappingURL=reg-form.module.css.map */\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/styles/center-side/reg-form.module.css b/client/src/styles/center-side/reg-form.module.css
+--- a/client/src/styles/center-side/reg-form.module.css	(revision 7d6872d09dff348fd77fc0e73f07a74b6e8054b3)
++++ b/client/src/styles/center-side/reg-form.module.css	(date 1666629388596)
+@@ -1,65 +1,17 @@
+-.form {
+-  display: grid;
+-  grid-template-columns: 1fr;
+-  grid-template-rows: 7fr 3fr;
+-  align-items: center;
+-  justify-content: center;
+-  width: 280px;
+-  height: 520px;
+-  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.27);
+-  border-radius: 10px;
+-  border: 1px solid rgba(56, 56, 56, 0.11);
+-  background-color: rgba(255, 255, 255, 0.39);
+-}
+-
+-.inputSection {
+-  margin-top: 15%;
+-  width: 100%;
+-  height: 100%;
+-  display: grid;
+-  grid-template-rows: repeat(5, 1fr);
+-  grid-template-columns: 1fr;
+-  align-items: center;
+-  justify-content: center;
+-}
++/* Error: Can't find stylesheet to import.
++ *   ,
++ * 1 | @import '../variables';
++ *   |         ^^^^^^^^^^^^^^
++ *   '
++ *   reg-form.module.scss 1:9  root stylesheet */
+ 
+-.inputContainer {
+-  display: grid;
+-  grid-template-columns: 1fr;
+-  grid-template-rows: 7fr 3fr;
+-  justify-content: center;
+-  align-items: flex-start;
+-  width: 100%;
+-  height: 100%;
+-}
+-
+-.input {
+-  margin-left: 11%;
++body::before {
++  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
++      "Droid Sans Mono", monospace, monospace;
++  white-space: pre;
+   display: block;
+-  background-color: rgba(234, 234, 234, 0.43);
+-  height: 90%;
+-  width: 78%;
+-  border: 1px solid rgba(0, 0, 0, 0.07);
+-  border-radius: 3px;
+-  padding-left: 15px;
+-  font-size: 14px;
+-}
+-
+-.inputAdditionalText {
+-  height: 100%;
+-  width: 100%;
+-  color: #e8636e;
+-  font-size: 13px;
+-  display: flex;
+-  justify-content: center;
++  padding: 1em;
++  margin-bottom: 1em;
++  border-bottom: 2px solid black;
++  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import '../variables';\a   \2502          ^^^^^^^^^^^^^^\a   \2575 \a   reg-form.module.scss 1:9  root stylesheet";
+ }
+-
+-.buttonSection {
+-  width: 100%;
+-  height: 100%;
+-  display: grid;
+-  align-items: center;
+-  justify-content: center;
+-}
+-
+-/*# sourceMappingURL=reg-form.module.css.map */
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1666629887515)
++++ b/.idea/workspace.xml	(date 1666629887515)
+@@ -0,0 +1,59 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="abd059bf-7711-4f85-b4dc-6c4ebd98455e" name="변경" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2Ga2IcdyOdJgCls0WeqW4mnht6A" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/Users/in/Documents/umc_selector&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
++  }
++}</component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="디폴트 작업">
++      <changelist id="abd059bf-7711-4f85-b4dc-6c4ebd98455e" name="변경" comment="" />
++      <created>1666612294466</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1666612294466</updated>
++      <workItem from="1666612295786" duration="4840000" />
++      <workItem from="1666628656276" duration="1230000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
