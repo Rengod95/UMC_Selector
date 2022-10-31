@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5849559-fc6e-4558-840a-20797b9e272c" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+    <list default="true" id="e5849559-fc6e-4558-840a-20797b9e272c" name="변경" comment="변경">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="5e55d79f-64d3-4f09-8bad-2a4cc3590ea4" name="kjgi7 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +67,7 @@
       <workItem from="1666274706027" duration="17654000" />
       <workItem from="1666587889295" duration="9056000" />
       <workItem from="1666606371060" duration="13960000" />
+      <workItem from="1667181471889" duration="426000" />
     </task>
     <servers />
   </component>
