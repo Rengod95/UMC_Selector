@@ -7,7 +7,7 @@ module.exports = isAuth = async(req, res, next) => {
     if (!(authHeader && authHeader.startsWith('Bearer '))) {
         return res.status(401).json("토큰 오류");
     }
-
+//kdk는 바보야
     const token = authHeader.split(' ')[1];
     jwt.verify(
         token,
