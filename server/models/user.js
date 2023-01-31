@@ -19,7 +19,7 @@ module.exports = class User extends Sequelize.Model {
                 type: Sequelize.STRING(10),
                 allowNull: false,
             },
-            nickName:{
+            nickname:{
                 type: Sequelize.TEXT,
                 allowNull: true,
                 unique: true,
@@ -29,12 +29,12 @@ module.exports = class User extends Sequelize.Model {
                 allowNull: true,
             },
             partNumber: {
-                type: Sequelize.DATE,
+                type: Sequelize.INTEGER,
                 allowNull: false,
             },
             adminNumber: {
-                type: Sequelize.DATE,
-                allowNull: true,
+                type: Sequelize.INTEGER,
+                allowNull: false,
                 defaultValue: 0,
             },
         }, {
